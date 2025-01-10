@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 /**
  *
@@ -11,12 +10,12 @@ package treball_final_2022;
  */
 public class Tauler {
 
-    //ATRIBUTS
+    // ATRIBUTS
     public final Carta[][] taulerCartes;
     private final int files = 4;
     private final int columnes = 13;
 
-    //CONSTRUCTOR
+    // CONSTRUCTOR
     public Tauler() {
         taulerCartes = new Carta[files][columnes];
     }

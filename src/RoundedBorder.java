@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 import java.awt.Component;
 import java.awt.Graphics;
@@ -16,7 +15,7 @@ import javax.swing.border.Border;
  */
 public class RoundedBorder implements Border {
 
-    //MÈTODE PER FER ELS BOTONS DEL MENÚ REDONS
+    // MÈTODE PER FER ELS BOTONS DEL MENÚ REDONS
     private final int radius;
 
     RoundedBorder(int radius) {

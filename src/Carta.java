@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -23,7 +22,7 @@ public class Carta extends JLabel {
     private final Pal pal;
     private final int num;
     public JLabel carta;
-    public static final int[] tamanyCartes = {62, 80};
+    public static final int[] tamanyCartes = { 62, 80 };
 
     // CONSTRUCTOR
     public Carta(Pal pal, int i) {
@@ -41,7 +40,7 @@ public class Carta extends JLabel {
         }
     }
 
-    //CONSTRUCTOR CARTA BUIDA
+    // CONSTRUCTOR CARTA BUIDA
     public Carta(boolean visible) {
         this.pal = null;
         this.num = 0;

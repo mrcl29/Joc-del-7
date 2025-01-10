@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -15,8 +14,8 @@ import javax.swing.JLabel;
  */
 public class CasillaCarta extends JLabel {
 
-    //CLASSE PER LES CASELLES INFERIORS DE LES CARTES DEL TAULER
-    //CONSTRUCTORS
+    // CLASSE PER LES CASELLES INFERIORS DE LES CARTES DEL TAULER
+    // CONSTRUCTORS
     public CasillaCarta() {
         setBorder(javax.swing.BorderFactory.createLineBorder((new Color(0, 110, 0)), 2));
         setLayout(new FlowLayout(FlowLayout.CENTER, 2, 7));

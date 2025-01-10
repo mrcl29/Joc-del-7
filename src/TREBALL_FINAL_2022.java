@@ -1,4 +1,3 @@
-package treball_final_2022;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -33,11 +32,11 @@ import javax.swing.JTextArea;
 /**
  *
  * @author Carlos Lozano, Marc Llobera
- * Video: https://youtu.be/snmbwsmNoxY
+ *         Video: https://youtu.be/snmbwsmNoxY
  */
 public class TREBALL_FINAL_2022 extends JFrame {
 
-    //ATRIBUTS INTERFICIE
+    // ATRIBUTS INTERFICIE
     private Container contenedor;
     private final Color colorTauler = new Color(0, 110, 0);
     private final JLabel[] panelCartesRestantsIA = new JLabel[3];
@@ -47,21 +46,18 @@ public class TREBALL_FINAL_2022 extends JFrame {
     private JButton mescla, juga, reinicia, passa, tornJugador;
     private final JPanel menuTotal = new JPanel();
     private final JTextArea texteMissatge = new JTextArea();
-    private final JSplitPane separadorIA
-            = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-    private final JSplitPane separadorTablero
-            = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-    private final JSplitPane separadorMenu
-            = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+    private final JSplitPane separadorIA = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+    private final JSplitPane separadorTablero = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+    private final JSplitPane separadorMenu = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 
-    //ATRIBUTS JOC
+    // ATRIBUTS JOC
     private final Jugador[] jugadorsIA = new Jugador[3];
     private Jugador jugadorUsuari = new Jugador();
     private final Carta[] cartesUsuari = new Carta[13];
     private boolean acabat;
     public Tauler tauler;
     private Baralla baralla;
-    private int torn = 3;//els torns van del 0 al 3(torn usuari)
+    private int torn = 3;// els torns van del 0 al 3(torn usuari)
 
     public static void main(String[] args) throws IOException {
         new TREBALL_FINAL_2022().interfici();
@@ -69,7 +65,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
 
     private void interfici() throws IOException {
         setTitle("Pràctica Prog II - Joc del 7");
-        //  setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // setExtendedState(JFrame.MAXIMIZED_BOTH);
         setSize(1000, 680);
         setResizable(false);
         setDefaultCloseOperation(TREBALL_FINAL_2022.EXIT_ON_CLOSE);
@@ -89,7 +85,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
         actualitzarMaJugadorIA(0, "fondo_casella", panelCartesRestantsIA[2]);
         jugadorsIA[2] = new Jugador();
 
-        //agrupam les mans e cartes dins un panell
+        // agrupam les mans e cartes dins un panell
         JPanel taulerJugadorsIA = new JPanel();
         taulerJugadorsIA.setBackground(colorTauler);
         taulerJugadorsIA.setLayout(new GridLayout(1, 5, 135, 0));
@@ -105,17 +101,17 @@ public class TREBALL_FINAL_2022 extends JFrame {
         taulerBaralla.setLayout(new GridLayout(4, 13));
         tauler = new Tauler();
         baralla = new Baralla();
-        mostrarTaulerMesclat(false);//mostram el tauler sense mesclar
+        mostrarTaulerMesclat(false);// mostram el tauler sense mesclar
 
         ////////////////////////////JUGADOR USUARI//////////////////////////////
-        //cream les cartes buides del jugador Usuari
+        // cream les cartes buides del jugador Usuari
         cartesUsuari[0] = new Carta(true);
         for (int i = 1; i < cartesUsuari.length; i++) {
             cartesUsuari[i] = new Carta(false);
         }
         taulerUsuari.setBackground(colorTauler);
         taulerUsuari.setLayout(new GridBagLayout());
-        actualitzarMaJugadorUsuari(0);//actualitzar mà amb les ncartes del usuari
+        actualitzarMaJugadorUsuari(0);// actualitzar mà amb les ncartes del usuari
         ////////////////////////////////////////////////////////////////////////
 
         /*----------------------------------------------------------------------
@@ -125,20 +121,20 @@ public class TREBALL_FINAL_2022 extends JFrame {
         ActionListener gestorEventos = (ActionEvent evento) -> {
             switch (evento.getActionCommand()) {
                 case "Mescla": {
-                    //mostram el tauler amb cartes mesclades
+                    // mostram el tauler amb cartes mesclades
                     mostrarTaulerMesclat(true);
-                    juga.setEnabled(true);//activam botó Jugar
-                    reinicia.setEnabled(true);//activam botó Reiniciar
+                    juga.setEnabled(true);// activam botó Jugar
+                    reinicia.setEnabled(true);// activam botó Reiniciar
                     break;
                 }
                 case "Juga": {
-                    iniciJoc();//cridam per iniciar el joc
-                    //cambiam els botons del menú
+                    iniciJoc();// cridam per iniciar el joc
+                    // cambiam els botons del menú
                     mostrarMenuCorresponent(passa, null);
                     break;
                 }
                 case "Reinicia": {
-                    //reiniciam les variables del joc per tornar a començar
+                    // reiniciam les variables del joc per tornar a començar
                     jugadorsIA[0] = new Jugador();
                     jugadorsIA[1] = new Jugador();
                     jugadorsIA[2] = new Jugador();
@@ -151,13 +147,13 @@ public class TREBALL_FINAL_2022 extends JFrame {
                             panelCartesRestantsIA[2]);
                     tauler = new Tauler();
                     baralla = new Baralla();
-                    //mostram el tauler sense mesclar
+                    // mostram el tauler sense mesclar
                     mostrarTaulerMesclat(false);
                     cartesUsuari[0] = new Carta(true);
                     for (int i = 1; i < cartesUsuari.length; i++) {
                         cartesUsuari[i] = new Carta(false);
                     }
-                    //actualitzar mà amb les ncartes del usuari
+                    // actualitzar mà amb les ncartes del usuari
                     actualitzarMaJugadorUsuari(0);
                     juga.setEnabled(false);
                     reinicia.setEnabled(false);
@@ -169,19 +165,19 @@ public class TREBALL_FINAL_2022 extends JFrame {
                     break;
                 }
                 case "Passa": {
-                    torn = 0;//quan passam comença el primer jugadorIA
+                    torn = 0;// quan passam comença el primer jugadorIA
                     actualitzarText("Has passat");
-                    //cambiam els botons del menú
+                    // cambiam els botons del menú
                     mostrarMenuCorresponent(tornJugador, null);
                     break;
                 }
                 case "Torn Jugador": {
-                    //treim una carta del jugadorIA corresponent
+                    // treim una carta del jugadorIA corresponent
                     Carta posada = jugadorsIA[torn].treureCarta(tauler);
                     actualitzarMaJugadorIA(jugadorsIA[torn].getNumCartas(),
                             "card_back_blue", panelCartesRestantsIA[torn]);
                     if (jugadorsIA[torn].getNumCartas() == 0) {
-                        //Si el jugador es queda sense cartes acabe el joc
+                        // Si el jugador es queda sense cartes acabe el joc
                         acabat = true;
                     }
                     torn++;
@@ -191,14 +187,14 @@ public class TREBALL_FINAL_2022 extends JFrame {
                     } else {
                         actualitzarText("El Jugador" + torn + " passa");
                     }
-                    //Si es el torn del usuari cambiam botons del menu
+                    // Si es el torn del usuari cambiam botons del menu
                     if (torn == 3) {
                         mostrarMenuCorresponent(passa, null);
                     }
-                    //actualitzam el tauler de la interfície amb les cartes del
-                    //tauler del joc
+                    // actualitzam el tauler de la interfície amb les cartes del
+                    // tauler del joc
                     actualitzarTauler(tauler.taulerCartes);
-                    if (acabat) {//acabam la partida
+                    if (acabat) {// acabam la partida
                         partidaAcabada(false, torn - 1);
                         torn = 3;
                         tornJugador.setEnabled(false);
@@ -209,7 +205,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
             }
         };
 
-        //BOTONS
+        // BOTONS
         menuBotons = new JPanel();
 
         mescla = new JButton("Mescla");
@@ -236,7 +232,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
 
         mostrarMenuCorresponent(mescla, juga);
 
-        //MISSATGE INFERIOR
+        // MISSATGE INFERIOR
         texteMissatge.setFocusable(false);
         actualitzarText("Abans de jugar cal mesclar la baralla");
 
@@ -284,8 +280,8 @@ public class TREBALL_FINAL_2022 extends JFrame {
      * i la imatge a mostrar
      *
      * @param cartesRestants ncartes restants que es mostrará al panell
-     * @param x nom del arxiu imatge que es mostrarà
-     * @param aux panell del Jugador IA que es modifica
+     * @param x              nom del arxiu imatge que es mostrarà
+     * @param aux            panell del Jugador IA que es modifica
      */
     private void actualitzarMaJugadorIA(int cartesRestants, String x,
             JLabel aux) {
@@ -300,8 +296,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
                 aux.setIcon(new ImageIcon(imatge));
             }
             aux.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
-            JTextArea text_Jugador
-                    = new JTextArea(String.valueOf(cartesRestants));
+            JTextArea text_Jugador = new JTextArea(String.valueOf(cartesRestants));
             text_Jugador.setForeground(Color.WHITE);
             text_Jugador.setFont(new Font("Arial", Font.CENTER_BASELINE, 55));
             text_Jugador.setOpaque(false);
@@ -375,7 +370,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
      * Actualitzam el tauler mostrant les cartes o ordenades o mesclades
      *
      * @param mezclado indica si es mostrarà el tauler amb les carten en ordre o
-     * es mesclarà la baralla
+     *                 es mesclarà la baralla
      */
     private void mostrarTaulerMesclat(boolean mezclado) {
         taulerBaralla.removeAll();
@@ -437,7 +432,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
         for (int i = 0; i < Baralla.MAXCARTES / 4; i++) {
             Carta aux = baralla.agafaCarta();
 
-            //Listener del ratolí per les cartes d'Usuari
+            // Listener del ratolí per les cartes d'Usuari
             aux.carta.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -529,9 +524,9 @@ public class TREBALL_FINAL_2022 extends JFrame {
      * Mètode per quan acaba la partida mostrar el missatge corresponent per
      * pantalla
      *
-     * @param guanyat indicam si l'usuari ha guanyat o no
+     * @param guanyat  indicam si l'usuari ha guanyat o no
      * @param nJugador jugador que ha guanyat la partida per seleccionar la
-     * imatge a mostrar
+     *                 imatge a mostrar
      */
     public void partidaAcabada(boolean guanyat, int nJugador) {
         if (guanyat) {
@@ -566,7 +561,8 @@ public class TREBALL_FINAL_2022 extends JFrame {
             JOptionPane.showMessageDialog(
                     null,
                     new JLabel("HAS PERDUT", new ImageIcon(imatge),
-                            JLabel.LEFT), "Ups!",
+                            JLabel.LEFT),
+                    "Ups!",
                     JOptionPane.INFORMATION_MESSAGE);
         }
         actualitzarText("Simulació acabada");

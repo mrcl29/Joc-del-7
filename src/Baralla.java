@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 import java.util.Random;
 
@@ -13,7 +12,7 @@ import java.util.Random;
  */
 public class Baralla {
 
-    //ATRIBUTS
+    // ATRIBUTS
     public static final int MAXCARTESPERPAL = 13;
     public static final int MAXCARTES = MAXCARTESPERPAL * 4; // 52 Nombre màxim de cartes 13 cartes * 4 Pals
 
@@ -33,7 +32,7 @@ public class Baralla {
         }
     }
 
-    public void mescla() {//Fisher-Yates
+    public void mescla() {// Fisher-Yates
         Random rnd = new Random();
         for (int i = MAXCARTES - 1; i > 0; i--) {
             int pos = rnd.nextInt(i + 1);

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package treball_final_2022;
 
 import java.util.ArrayList;
 
@@ -13,10 +12,10 @@ import java.util.ArrayList;
  */
 public class Jugador {
 
-    //ATRIBUTS
+    // ATRIBUTS
     public final ArrayList<Carta> cartasAsignadas;
 
-    //CONSTRUCTOR
+    // CONSTRUCTOR
     public Jugador() {
         cartasAsignadas = new ArrayList<>();
     }
