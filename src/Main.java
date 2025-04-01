@@ -34,7 +34,7 @@ import javax.swing.JTextArea;
  * @author Carlos Lozano, Marc Llobera
  *         Video: https://youtu.be/snmbwsmNoxY
  */
-public class TREBALL_FINAL_2022 extends JFrame {
+public class Main extends JFrame {
 
     // ATRIBUTS INTERFICIE
     private Container contenedor;
@@ -60,7 +60,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
     private int torn = 3;// els torns van del 0 al 3(torn usuari)
 
     public static void main(String[] args) throws IOException {
-        new TREBALL_FINAL_2022().interfici();
+        new Main().interfici();
     }
 
     private void interfici() throws IOException {
@@ -68,7 +68,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
         // setExtendedState(JFrame.MAXIMIZED_BOTH);
         setSize(1000, 680);
         setResizable(false);
-        setDefaultCloseOperation(TREBALL_FINAL_2022.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(Main.EXIT_ON_CLOSE);
         contenedor = getContentPane();
 
         /*----------------------------------------------------------------------
@@ -303,7 +303,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
             text_Jugador.setEditable(false);
             aux.add(text_Jugador);
         } catch (IOException ex) {
-            Logger.getLogger(TREBALL_FINAL_2022.class.getName())
+            Logger.getLogger(Main.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
         contenedor.repaint();
@@ -538,7 +538,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
                 imatge = bufferedImage.getScaledInstance(Carta.tamanyCartes[0],
                         Carta.tamanyCartes[1], Image.SCALE_DEFAULT);
             } catch (IOException ex) {
-                Logger.getLogger(TREBALL_FINAL_2022.class.getName())
+                Logger.getLogger(Main.class.getName())
                         .log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(
@@ -555,7 +555,7 @@ public class TREBALL_FINAL_2022 extends JFrame {
                 imatge = bufferedImage.getScaledInstance(Carta.tamanyCartes[0],
                         Carta.tamanyCartes[1], Image.SCALE_DEFAULT);
             } catch (IOException ex) {
-                Logger.getLogger(TREBALL_FINAL_2022.class.getName())
+                Logger.getLogger(Main.class.getName())
                         .log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(
